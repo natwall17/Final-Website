@@ -1,0 +1,558 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=League+Spartan:wght@100..900&display=swap');
+/* Variables and Basics */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    resize: none;
+}
+:root{
+    --color-primary:#fff;
+    --color-secondary:pink;
+    --color-teritiary: rgb(0, 0, 0);
+    --color-text:black;
+    --shadow: 0 2px 40px 8px rgba(15, 15, 15, .8)
+    --transition: all .4s ease-in-out;
+
+    --width-1g: 85%;
+    --width-sm: 95%;
+
+}
+::-webkit-scrollbar{
+    height: .5rem;
+    width: .5rem;
+}
+::-webkit-scrollbar
+
+
+body{
+    font-family: "League Spartan", sans-serif;
+    font-family: "Dancing Script", serif;
+    color: var(--color-text);
+    line-height: 1.7;
+    overflow-x:hidden;
+}
+::-webkit-scrollbar{
+    height: .5rem;
+    width: .5rem;
+}
+::-webkit-scrollbar-track{
+    background: var(--color-primary);
+}
+::-webkit-scrollbar-thumb{
+    background: var(--color-secondary);
+}
+img{
+    display:block;
+    width:100%;
+    object-fit: cover;
+}
+a{
+    color: var(--color-text);
+}
+span{
+    font-size: .9rem;
+}
+h1,h2,h3,h4{
+    line-height:1.2;
+}
+h1{
+    font-size: 2.8rem;
+}
+h2{
+    font-size:2rem;
+}
+h3{
+    font-size: 1.6rem;
+}
+h4{
+    font-size: 1.3rem;
+}
+h5{
+    font-size: 1rem;
+}
+.container{
+    margin:0 auto;
+    width: var(--width-lg);
+}
+section{
+    padding: 6rem 0 3rem;
+}
+section h2{
+    text-align:center;
+    margin-bottom: 2rem;
+}
+.title{
+    text-align:center;
+    margin-bottom:4rem;
+}
+.title h2{
+    font-size: 3.5rem;
+    font-weight:400;
+    text-transform: capitalize;
+    font-family: "Dancing Script", serif;
+    display:inline-block;
+    color: var(--color-secondary);
+    position: relative;
+}
+.title h2::before{
+    position:absolute;
+    content:'';
+    bottom:-21%;
+    left:0;
+    transform: translateY(-50%);
+    width:8rem;
+    height:.1rem;
+    background:var(--color-secondary);
+}
+
+nav{
+    background: var(--color-text);
+    color:var(--color-primay) !important;
+}
+.logo{
+    color:var(--color-primary);
+    padding: 1rem 0;
+}
+.logo div:first-child{
+    font-weight:700;
+    text-transform: uppercase;
+    font-size: 2rem;
+    line-height:1;
+}
+.logo div:first-child span{
+    font-weight:700;
+    text-transform: uppercase;
+    font-size:2rem;
+    line-height:1;
+}
+.logo div:last-child{
+    line-height:1;
+    text-transform:uppercase;
+    font-size: .7rem;
+    letter-spacing: .23rem;
+    color:#000000
+}
+.nav-container{
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+}
+nav .navlist{
+    display:flex;
+}
+nav .navlist li{
+    text-transform:uppercase;
+    font-size: .9rem;
+    cursor:pointer;
+}
+nav .navlist li a{
+    color:var(--color-primary);
+    padding:2rem;
+    position:relative;
+}
+.navlist li a::before{
+    content: '';
+    position: absolute;
+    top:0;
+    left:0;
+    background: var(--color-secondary);
+    height:95%;
+    width:100%;
+    border-bottom: .2rem solid var(--color-primary);
+    transition:var(--transition);
+    opacity:0;
+    visibility: hidden;
+}
+.navlist li a:hover::before,
+.navlist li a:active::before
+{
+    height:95%;
+    opacity:0;
+    visibility:visible;
+}
+.menu-btn .lnr{
+    font-size: 1.1rem;
+    display:none;
+}
+.nav-icons{
+    display:flex;
+    gap:2rem;
+}
+.nav-icons .lnr{
+    font-size: 1.1rem;
+    cursor:pointer;
+}
+.nav-icons .lnr:hover{
+    color:var(--color-secondary);
+}
+/*=====================Home====================================*/
+.home{
+    padding:0;
+}
+.home .slide1{
+    background:url(images/pic1.png);
+    background-position:center;
+    background-size:cover;
+    height:100vh;
+    width:100%;
+}
+.home .slide2{
+    background:url(images/pic2.png);
+    background-position:center;
+    background-size:cover;
+    height:100vh;
+    width:100%;
+}
+.home .swiper-slide{
+    position:relative;
+}
+.home .swiper-slide .content{
+    position:absolute;
+    transform:translate(20%, 50%);
+    max-width: 550px;
+}
+.home h1{
+    font-size: 3.5rem;
+    text-transform:capitalize;
+    font-weight:800;
+    color: #000000;
+}
+.home .content p{
+    margin: 2rem 0 1rem;
+    color: var(--color-teritiary);
+}
+.home .home-search input{
+    height:4rem;
+    width:25rem;
+    border-radius:3rem;
+    padding:1rem 1.6rem;
+    padding-left: 1.9rem;
+    font-size:1rem;
+}
+.home .home-search .btn{
+    padding: 1rem 1.6rem;
+    height:4rem;
+    width:4rem;
+    margin:0;
+    padding:0;
+    border:0;
+    border-radius:0 50% 50% 50%;
+    position:relative;
+    left: -4rem;
+    background: var(--color-secondary);
+    color: var(--color-primary)
+}
+.home-search .lnr{
+    font-size:1rem;
+    font-weight:700;
+}
+/*.home .swiper-button-next.swiper-button-disabled,
+.home .swiper-button-prev.swiper-button-disabled{
+    opacity:1;
+}*/
+.home .swiper-button-next::after{
+    color:var(--color-primary);
+    background:var(--color-secondary);
+    font-size:2rem;
+    font-weight:900;
+    height:7rem;
+    width:7rem;
+    border-radius: 50%;
+    position:absolute;
+    bottom:-9rem;
+    right: -3.5rem;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+.home .swiper-button-prev::after{
+    color:var(--color-primary);
+    background:var(--color-secondary);
+    font-size:2rem;
+    font-weight:900;
+    height:7rem;
+    width:7rem;
+    border-radius: 50%;
+    position:absolute;
+    bottom:-9rem;
+    left: -3.5rem;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.about-container .right{
+    position:relative;
+}
+.about-container .right::before{
+    content:'';
+    position:absolute;
+    top:-3rem;
+    height:100%;
+    width:100%;
+    right:-9rem;
+    background:url(images/dots.png) no-repeat;
+}
+.about-container{
+    display:grid;
+    grid-template-columns:2fr 1fr;
+}
+.about-container .left{
+    background: url(images/about.png);
+    height:100vh;
+    width:100%;
+    background-position: center;
+    z-index: 11;
+    position: relative;
+}
+.about-container .left .content{
+    position:absolute;
+    top:33%;
+    left:8.8rem;
+    max-width:19rem;
+}
+.about-container .title{
+    text-align: left;
+    margin-bottom:0;
+}
+.about-container .title h2{
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color:var(--color-text);
+}
+.top-bar {
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    padding: 0.5em;
+    font-size: 0.9em;
+}
+
+.top-bar a {
+    color: #fff;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+/* Navigation */
+.menu-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em 2em;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.menu-links {
+    display: flex;
+    gap: 1em;
+}
+
+.menu-links a {
+    font-size: 0.9em;
+    font-weight: bold;
+}
+
+/* Hero Section */
+.hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 3em;
+    background: linear-gradient(to right, #f8f8f8, #e6e6e6);
+}
+
+.hero-content h1 {
+    font-size: 3em;
+    margin-bottom: 0.5em;
+}
+
+.hero-content p {
+    font-size: 1.5em;
+    margin-bottom: 1em;
+}
+
+.hero-buttons .btn {
+    padding: 1em 2em;
+    margin-right: 1em;
+    background-color: #333;
+    color: #fff;
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+
+.hero-buttons .btn:hover {
+    background-color: #555;
+}
+
+.hero-gallery .image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-50%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(50%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.fade-in {
+    animation: fadeIn 1s ease-in-out;
+}
+
+.slide-in-left {
+    animation: slideInLeft 1s ease-in-out;
+}
+
+.slide-in-right {
+    animation: slideInRight 1s ease-in-out;
+}
+
+.zoom-in {
+    animation: zoomIn 1s ease-in-out;
+}
+
+/* Gallery Grid */
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1em;
+}
+
+.image img {
+    width: 100%;
+    border-radius: 5px;
+    transition: transform 0.3s;
+}
+
+.image img:hover {
+    transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: #fff;
+}
+.video1{
+    margin-left: 30%;
+}
+.tableau1{
+}
+#about{
+    margin-left: 10%;
+}
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+.fashion-week1 {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.fashion-week1 h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    text-align: center;
+    color: #8b0000;
+}
+
+.fashion-week1 p {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
+
+.fashion-week1 ol {
+    padding-left: 20px;
+    margin-bottom: 0;
+}
+
+.fashion-week1 ol li {
+    margin-bottom: 15px;
+}
+
+.fashion-week1 ol li strong {
+    font-size: 1.2rem;
+    color: #444;
+}
+
+.fashion-week1 ul {
+    list-style-type: disc;
+    margin-top: 10px;
+    margin-left: 20px;
+    padding-left: 10px;
+}
+
+.fashion-week1 ul li {
+    margin-bottom: 5px;
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Styling for hover effect */
+.fashion-week ul li:hover {
+    color: #8b0000;
+    font-weight: bold;
+}

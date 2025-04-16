@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Guessing Game</title>
+    <link rel="stylesheet" href="styless.css">
+    <script>
+        let randomNumber = Math.floor(Math.random() * 100) + 1;
+        let attempts = 0;
+        let lastDifference = null;
+
+        function checkGuess() {
+            const userGuess = parseInt(document.getElementById('guessInput').value);
+            const feedback = document.getElementById('feedback');
+            const container = document.querySelector('.game-container');
+            attempts++;
+
+            if (isNaN(userGuess) || userGuess < 1 || userGuess > 100) {
+                feedback.textContent = 'Please enter a number between 1 and 100.';
+                return;
+            }
+
+            const difference = Math.abs(randomNumber - userGuess);
+
+            if (userGuess === randomNumber) {
+                feedback.textContent = `Congratulations! You guessed it in ${attempts} attempts!`;
+                feedback.style.color = 'green';
+                container.style.backgroundColor = '#90ee90'; // Light green for success
+                document.getElementById('guessButton').disabled = true;
+            } else {
+                if (lastDifference === null || difference < lastDifference) {
+                    feedback.textContent = 'You are getting closer!';
+                } else {
+                    feedback.textContent = 'You are getting farther away!';
+                }
+                lastDifference = difference;
+
+                if (userGuess < randomNumber) {
+                    feedback.textContent += ' Too low!';
+                    feedback.style.color = 'blue';
+                    container.style.backgroundColor = '#add8e6'; // Light blue for too low
+                } else {
+                    feedback.textContent += ' Too high!';
+                    feedback.style.color = 'red';
+                    container.style.backgroundColor = '#ffcccb'; // Light red for too high
+                }
+            }
+        }
+
+        function resetGame() {
+            randomNumber = Math.floor(Math.random() * 100) + 1;
+            attempts = 0;
+            lastDifference = null;
+            document.getElementById('guessInput').value = '';
+            document.getElementById('feedback').textContent = '';
+            document.getElementById('guessButton').disabled = false;
+            const container = document.querySelector('.game-container');
+            container.style.backgroundColor = '#ffc0cb'; // Reset to original pink
+        }
+    </script>
+</head>
+<body>
+    <div class="game-container">
+        <h1>Number Guessing Game</h1>
+        <p>I'm thinking of a number between 1 and 100. Can you guess it?</p>
+        <input type="number" id="guessInput" placeholder="Enter your guess" />
+        <button id="guessButton" onclick="checkGuess()">Submit Guess</button>
+        <button onclick="resetGame()">Reset Game</button>
+        <p id="feedback"></p>
+    </div>
+</body>
+</html>
